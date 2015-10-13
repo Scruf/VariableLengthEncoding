@@ -11,24 +11,31 @@ import java.util.Iterator;
  *
  * @author ekozi
  */
-public class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
+public class Node implements Comparable<Node>{
     public char sequence;
     public int frequence;
-    Node(){
-        sequence = ' ';
-        frequence = 0;
+    private final int rangeStart=0;
+    private final int rangeEnd=0;
+    Node(char seq,int freq){
+        this.sequence = seq;
+        this.frequence = freq;
     }
-    @Override
-    public int compareTo(Node<T> t) {
+  
+    public int compareTo() {
         return 1;
     }
-    public void setFrequency(int number){
-        this.frequence = number;
-    }
-    public void setSequence(char seq){
-        this.sequence = seq;
-    }
+   public char getSequence(){
+       return this.sequence;
+   }
+   public int getFrequence(){
+       return this.frequence;
+   }
 
+    @Override
+    public int compareTo(Node t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
    
     
     

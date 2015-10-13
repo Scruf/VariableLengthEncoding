@@ -57,8 +57,16 @@ public class ArrayHeap<E extends Comparable<E>>
     
     /**
        The siftDown method sifts down the element at arrayHeap[0].
+     * @return 
     */
     
+    public int size(){
+        return arrayHeap.size();
+    }
+    public Iterator<E> iterator() {
+       return arrayHeap.iterator();
+        // YOUR CODE GOES HERE
+    }
     private void siftDown()
     {
         int p = 0; // Position to sift down
