@@ -13,9 +13,10 @@ public class Symbol <E> {
    private E e;
    Symbol left;
    Symbol right;
+   Symbol root;
     Symbol(E e){
         this.e=e;
-        
+       
     }
     public E getProperties(){
         return e;

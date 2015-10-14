@@ -41,18 +41,25 @@ public class VLC {
      {
      
      }
-        ArrayList<Symbol> symbol = new ArrayList<Symbol>();
-    while(!heap.isEmpty()){
+        ArrayList<Node> symbol = new ArrayList<Node>();
+    while(heap.size()>1){
        Node n1 = heap.removeMin();
        Node n2 = heap.removeMin();
+       
        int freqN1 = n1.getFrequence();
        int freqN2 = n2.getFrequence();
        int sum = freqN1+freqN2;
-        symbol.add(new Symbol(new Node(' ',sum)));
+        symbol.add(new Node(' ',sum));
+        symbol.add(n1);
+        symbol.add(n2);
+       heap.add(new Node(' ',sum));
+     
     }
-   
   
-           
+
+       for(Node n : symbol){
+           System.out.println("The sequence "+n.sequence+" The frequence is "+n.frequence);
+       }
            
     }
 
