@@ -33,7 +33,13 @@ public class Node implements Comparable<Node>{
 
     @Override
     public int compareTo(Node t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if(this.frequence<t.frequence)
+           return -1;
+       if (this.frequence>t.frequence)
+           return 1;
+       if(this.frequence==t.frequence)
+           return 0;
+       return 0;
     }
    
    

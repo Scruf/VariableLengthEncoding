@@ -28,33 +28,30 @@ public class VLC {
          
         try{
         String line = " ";
-         BufferedReader reader = new BufferedReader(new FileReader("sample.txt"));
-        
-        while((line=reader.readLine())!=null)
-        {
-            System.out.println("Line is "+line);
-            char seq = line.split(" ")[0].charAt(0);
-            int freq = Integer.parseInt(line.split(" ")[1]);
-            System.out.println("seq "+seq+" freq "+freq);
-            heap.add(new Node(seq,freq));
-        }
-       
-         
-        reader.close();
+            try (BufferedReader reader = new BufferedReader(new FileReader("sample.txt"))) {
+                while((line=reader.readLine())!=null)
+                {
+                   
+                    char seq = line.split(" ")[0].charAt(0);
+                    int freq = Integer.parseInt(line.split(" ")[1]);
+                    heap.add(new Node(seq,freq));
+                }   }
      
      }catch(Exception ex)
      {
      
      }
-        System.out.print(heap.size());
-     /*
-     Iterator<Node> node = heap.iterator();
-     while(node.hasNext()){
-         char seq = node.next().getSequence();
-         int freq = node.next().getFrequence();
-         System.out.println(seq+" "+freq);
-         
-     }*/
+        ArrayList<Symbol> symbol = new ArrayList<Symbol>();
+    while(!heap.isEmpty()){
+       Node n1 = heap.removeMin();
+       Node n2 = heap.removeMin();
+       int freqN1 = n1.getFrequence();
+       int freqN2 = n2.getFrequence();
+       int sum = freqN1+freqN2;
+        symbol.add(new Symbol(new Node(' ',sum)));
+    }
+   
+  
            
            
     }
