@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,25 +42,38 @@ public class VLC {
      {
      
      }
-        ArrayList<Node> symbol = new ArrayList<Node>();
+      Symbol symb = new Symbol();
+      ArrayList<Node> list = new ArrayList<Node>();
     while(heap.size()>1){
+        
+        
        Node n1 = heap.removeMin();
+      
        Node n2 = heap.removeMin();
        
        int freqN1 = n1.getFrequence();
        int freqN2 = n2.getFrequence();
        int sum = freqN1+freqN2;
-        symbol.add(new Node(' ',sum));
-        symbol.add(n1);
-        symbol.add(n2);
-       heap.add(new Node(' ',sum));
-     
+       Node root = new Node(' ',sum);
+        System.out.println(n1.getFrequence());
+        System.out.println(n2.getFrequence());
+        System.out.println(root.getFrequence());
+        System.out.println("--------------------");
+        list.add(n1);
+        list.add(n2);
+       
+       heap.add(root);
+       
+       
     }
-  
-
-       for(Node n : symbol){
-           System.out.println("The sequence "+n.sequence+" The frequence is "+n.frequence);
-       }
+    list.add(heap.removeMin());
+    
+   Collections.reverse(list);
+    for(Node n : list){
+        symb.insert(n.sequence,n.frequence);
+    }
+    symb.inorrder();
+    
            
     }
 
